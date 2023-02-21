@@ -1,4 +1,6 @@
 import 'package:finince_manager/data/addDate.dart';
+import 'package:finince_manager/pages/BottomNavBar.dart';
+import 'package:finince_manager/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
@@ -88,10 +90,12 @@ class _AddpageState extends State<Addpage> {
   GestureDetector save() {
     return GestureDetector(
       onTap: () {
+        child:
         var add = AddData(
             selectedItemi!, amount_C.text, date, expalin_C.text, selectedItem!);
         box.add(add);
-        Navigator.of(context).pop();
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const NavBar()));
       },
       child: Container(
         alignment: Alignment.center,
@@ -369,7 +373,10 @@ class _AddpageState extends State<Addpage> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pop();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NavBar()));
                       },
                       child: Icon(
                         Icons.arrow_back,
